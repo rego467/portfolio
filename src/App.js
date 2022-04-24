@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import AboutContent from "./component/AboutContent";
+import ContentJumbotron from "./component/ContentJumbotron";
+import FooterContent from "./component/FooterContent";
+import HeaderNav from "./component/HeaderNav";
+import ProjectContent from "./component/ProjectContent";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  BrowserRouter,
+  Routes,
+} from "react-router-dom";
+import LayoutHome from "./component/LayoutHome";
+import ScrollToTop from "./component/ScrollToTop";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <ScrollToTop />
+      <HeaderNav />
+      <Routes>
+        <Route path="/" element={<LayoutHome />}></Route>
+        <Route path="about" element={<AboutContent />}></Route>
+        <Route path="project" element={<ProjectContent />}></Route>
+      </Routes>
+      <FooterContent />
+    </React.Fragment>
   );
 }
 
